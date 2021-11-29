@@ -3,39 +3,49 @@ symbols = ("`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_",
            "+", "[", "{", "]", "}", ";", ":", "'", '"', ",", "<", ".", ">", "/", "?", "|", "")
 letters = ("asdfghjklzxcvbnmqwertyuiop")
 
-print(len(symbols))
+print(len(letters))
 print("Passphrase Generator")
 print("By Sepehr Sahraian")
 print("AP CSP Class")
 
+
+def selectLetter(case):
+    letterSelected = letters[random.randint(0, 25)]
+    if case == "upper":
+        return letterSelected.upper()
+    else:
+        return letterSelected
+
+
+# generator loop
 while True:
     functions = []
 
     # lower case
     print("Include Lower Case? (y/n)")
-    lowerCase = input()
-    while lowerCase != "y" and lowerCase != "n":
+    includeLowerCase = input()
+    while includeLowerCase != "y" and includeLowerCase != "n":
         print("please enter y for yes and n for no")
         print("Include Lower Case? (y/n)")
-        lowerCase = input()
+        includeLowerCase = input()
     # upper case
     print("Include Upper Case? (y/n)")
-    upperCase = input()
-    while upperCase != "y" and upperCase != "n":
+    includeupperCase = input()
+    while includeupperCase != "y" and includeupperCase != "n":
         print("please enter y for yes and n for no")
         print("Include Upper Case? (y/n)")
-        upperCase = input()
+        includeupperCase = input()
     # symbols
     print("Include Symbols? (y/n)")
-    symbol = input()
-    while symbol != "y" and symbol != "n":
+    includeSymbol = input()
+    while includeSymbol != "y" and includeSymbol != "n":
         print("please enter y for yes and n for no")
         print("Include Symbols? (y/n)")
-        symbol = input()
+        includeSymbol = input()
     # numbers
     print("Include Numbers? (y/n)")
-    number = input()
-    while number != "y" and number != "n":
+    includeNumber = input()
+    while includeNumber != "y" and includeNumber != "n":
         print("please enter y for yes and n for no")
         print("Include Numbers? (y/n)")
-        number = input()
+        includeNumber = input()
