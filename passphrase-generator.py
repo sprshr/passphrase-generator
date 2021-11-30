@@ -31,28 +31,29 @@ def generate(length):
         generated = random.choice(functions)()
         passphrase = passphrase + generated
     return passphrase
-        
 
-    
-
-# generator loop
-while True:
-    functions = []
-    passLength = 0
-    # lower case
+def askLength():
+    global passLength
     print("Enter the passphrase Length")
     passLength = int(input())
+    print(passLength)
     while passLength <= 0:
         print("Please enter a valid number")
         passLength == input()
-    print("Include Lower Case? (y/n)")
-    includeLowerCase = input()
-    while includeLowerCase != "y" and includeLowerCase != "n":
+
+def incNumber():
+     # numbers
+    print("Include Numbers? (y/n)")
+    includeNumber = input()
+    while includeNumber != "y" and includeNumber != "n":
         print("please enter y for yes and n for no")
-        print("Include Lower Case? (y/n)")
-        includeLowerCase = input()
-    if includeLowerCase == "y":
-        functions.append(addLowerCase)
+        print("Include Numbers? (y/n)")
+        includeNumber = input()
+    if includeNumber == "y":
+        functions.append(addNumber)
+        global noCharacter
+        noCharacter = True
+def incUpper():
     # upper case
     print("Include Upper Case? (y/n)")
     includeUpperCase = input()
@@ -62,7 +63,20 @@ while True:
         includeupperCase = input()
     if includeUpperCase == "y":
         functions.append(addUpperCase)
-    # symbols
+        global noCharacter
+        noCharacter = True
+def incLower():
+    print("Include Lower Case? (y/n)")
+    includeLowerCase = input()
+    while includeLowerCase != "y" and includeLowerCase != "n":
+        print("please enter y for yes and n for no")
+        print("Include Lower Case? (y/n)")
+        includeLowerCase = input()
+    if includeLowerCase == "y":
+        functions.append(addLowerCase)
+        global noCharacter
+        noCharacter = True
+def incSymbol():
     print("Include Symbols? (y/n)")
     includeSymbol = input()
     while includeSymbol != "y" and includeSymbol != "n":
@@ -71,15 +85,27 @@ while True:
         includeSymbol = input()
     if includeSymbol == "y":
         functions.append(addSymbol)
-    # numbers
-    print("Include Numbers? (y/n)")
-    includeNumber = input()
-    while includeNumber != "y" and includeNumber != "n":
-        print("please enter y for yes and n for no")
-        print("Include Numbers? (y/n)")
-        includeNumber = input()
-    if includeNumber == "y":
-        functions.append(addNumber)
+        global noCharacter
+        noCharacter = True
+
+    
+
+# generator loop
+while True:
+    functions = []
+    passLength = 0
+    noCharacter = False
+    askLength()
+    incLower()
+    incUpper()
+    incNumber()
+    incSymbol()
+    while noCharacter == False:
+        print("You need to at least allow one type of chracater")
+        incLower()
+        incUpper()
+        incNumber()
+        incSymbol()
     again = "y"
     while again == "y":
         print(generate(passLength))
