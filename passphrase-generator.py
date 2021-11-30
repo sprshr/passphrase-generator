@@ -1,6 +1,6 @@
 import random
 #global var
-again = "y"
+global again
 symbols = ("`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=",
            "+", "[", "{", "]", "}", ";", ":", "'", '"', ",", "<", ".", ">", "/", "?", "|", "")
 letters = ("asdfghjklzxcvbnmqwertyuiop")
@@ -27,10 +27,6 @@ def addSymbol():
 
 def generate(length):
     passphrase = ""
-    if includeLowerCase == "n":
-        functions.pop(0)
-    if includeUpperCase == "n":
-        functions.pop(1)
     for n in range(length):
         generated = random.choice(functions)()
         passphrase = passphrase + generated
@@ -55,8 +51,8 @@ while True:
         print("please enter y for yes and n for no")
         print("Include Lower Case? (y/n)")
         includeLowerCase = input()
-        if includeLowerCase == "y":
-            functions.append(addLowerCase)
+    if includeLowerCase == "y":
+        functions.append(addLowerCase)
     # upper case
     print("Include Upper Case? (y/n)")
     includeUpperCase = input()
@@ -64,8 +60,8 @@ while True:
         print("please enter y for yes and n for no")
         print("Include Upper Case? (y/n)")
         includeupperCase = input()
-        if includeUpperCase == "y":
-            functions.append(addUpperCase)
+    if includeUpperCase == "y":
+        functions.append(addUpperCase)
     # symbols
     print("Include Symbols? (y/n)")
     includeSymbol = input()
@@ -84,10 +80,12 @@ while True:
         includeNumber = input()
     if includeNumber == "y":
         functions.append(addNumber)
+    again = "y"
     while again == "y":
         print(generate(passLength))
         print("Generate a New Passphrase?(y/n)")
-        again == input()
-        if input != "y" and input != "n":
+        again = input()
+        if again != "y" and again != "n":
             print("Please Enter y for Yes and n for No")
             again == input()
+    break
