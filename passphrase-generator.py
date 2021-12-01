@@ -33,8 +33,8 @@ def generate(length):
 def askLength():
     global passLength
     print("Enter the passphrase Length")
-    passLength = int(input())
-    while passLength <= 0:
+    passLength = input()
+    while type(passLength) != int or passLength <= 0 :
         print("Please enter a valid number")
         passLength == input()
 
