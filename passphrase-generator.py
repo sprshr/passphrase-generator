@@ -1,11 +1,9 @@
 import random
 #global var
-global again
 symbols = ("`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=",
            "+", "[", "{", "]", "}", ";", ":", "'", '"', ",", "<", ".", ">", "/", "?", "|", "")
 letters = ("asdfghjklzxcvbnmqwertyuiop")
 
-print(len(letters))
 print("Passphrase Generator")
 print("By Sepehr Sahraian")
 print("AP CSP Class")
@@ -36,7 +34,6 @@ def askLength():
     global passLength
     print("Enter the passphrase Length")
     passLength = int(input())
-    print(passLength)
     while passLength <= 0:
         print("Please enter a valid number")
         passLength == input()
@@ -92,26 +89,34 @@ def incSymbol():
 
 # generator loop
 while True:
-    functions = []
-    passLength = 0
-    noCharacter = False
-    askLength()
-    incLower()
-    incUpper()
-    incNumber()
-    incSymbol()
-    while noCharacter == False:
-        print("You need to at least allow one type of chracater")
+    changeConfig = "y"
+    while changeConfig == "y":
+        functions = []
+        passLength = 0
+        noCharacter = False
+        askLength()
         incLower()
         incUpper()
         incNumber()
         incSymbol()
-    again = "y"
-    while again == "y":
-        print(generate(passLength))
-        print("Generate a New Passphrase?(y/n)")
-        again = input()
-        if again != "y" and again != "n":
-            print("Please Enter y for Yes and n for No")
-            again == input()
+        while noCharacter == False:
+            print("You need to at least allow one type of chracater")
+            incLower()
+            incUpper()
+            incNumber()
+            incSymbol()
+        again = "y"
+        while again == "y":
+            print(generate(passLength))
+            print("Generate a New Passphrase?(y/n)")
+            again = input()
+            if again != "y" and again != "n":
+                print("Please Enter y for Yes and n for No")
+                again == input()
+        print("Would you like to chagne the configuration?(y/n)")
+        changeConfig = input()
+        while changeConfig != "n" and changeConfig != "y":
+            print("Please enter y for yes and n for no")
+            changeConfig = input()
+    else: print("Thanks")
     break
