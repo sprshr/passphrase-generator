@@ -34,9 +34,13 @@ def askLength():
     global passLength
     print("Enter the passphrase Length")
     passLength = input()
-    while type(passLength) != int or passLength <= 0 :
+    while passLength.isnumeric() == False:
         print("Please enter a valid number")
-        passLength == input()
+        passLength = input()
+    else: passLength = int(passLength)
+    while passLength <= 0 :
+        print("Please enter a valid number")
+        passLength = input()
 
 def incNumber():
      # numbers
