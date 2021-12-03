@@ -114,7 +114,7 @@ while True:
             print(generate(passLength))
             print("Generate a New Passphrase?(y/n)")
             again = input()
-            if again != "y" and again != "n":
+            while again != "y" and again != "n":
                 print("Please Enter y for Yes and n for No")
                 again == input()
         print("Would you like to chagne the configuration?(y/n)")
