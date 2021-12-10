@@ -7,21 +7,26 @@ letters = ("asdfghjklzxcvbnmqwertyuiop")
 print("Passphrase Generator")
 print("By Sepehr Sahraian")
 print("AP CSP Class")
-#generator functions
+# generator functions
+
 
 def addUpperCase():
     letterSelected = letters[random.randint(0, 25)]
     return letterSelected.upper()
 
+
 def addLowerCase():
     letterSelected = letters[random.randint(0, 25)]
     return letterSelected
 
+
 def addNumber():
     return str(random.randint(0, 9))
 
+
 def addSymbol():
     return random.choice(symbols)
+
 
 def generate(length):
     passphrase = ""
@@ -30,6 +35,7 @@ def generate(length):
         passphrase = passphrase + generated
     return passphrase
 
+
 def askLength():
     global passLength
     print("Enter the passphrase Length")
@@ -37,13 +43,15 @@ def askLength():
     while passLength.isnumeric() == False:
         print("Please enter a valid number")
         passLength = input()
-    else: passLength = int(passLength)
-    while passLength <= 0 :
+    else:
+        passLength = int(passLength)
+    while passLength <= 0:
         print("Please enter a valid number")
         passLength = input()
 
+
 def incNumber():
-     # numbers
+    # numbers
     print("Include Numbers? (y/n)")
     includeNumber = input()
     while includeNumber != "y" and includeNumber != "n":
@@ -54,6 +62,8 @@ def incNumber():
         functions.append(addNumber)
         global noCharacter
         noCharacter = True
+
+
 def incUpper():
     # upper case
     print("Include Upper Case? (y/n)")
@@ -66,6 +76,8 @@ def incUpper():
         functions.append(addUpperCase)
         global noCharacter
         noCharacter = True
+
+
 def incLower():
     print("Include Lower Case? (y/n)")
     includeLowerCase = input()
@@ -77,6 +89,8 @@ def incLower():
         functions.append(addLowerCase)
         global noCharacter
         noCharacter = True
+
+
 def incSymbol():
     print("Include Symbols? (y/n)")
     includeSymbol = input()
@@ -89,7 +103,6 @@ def incSymbol():
         global noCharacter
         noCharacter = True
 
-    
 
 # generator loop
 while True:
@@ -122,5 +135,6 @@ while True:
         while changeConfig != "n" and changeConfig != "y":
             print("Please enter y for yes and n for no")
             changeConfig = input()
-    else: print("Thanks")
+    else:
+        print("Thanks")
     break
