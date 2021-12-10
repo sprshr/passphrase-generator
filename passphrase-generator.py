@@ -131,7 +131,7 @@ while True:
             again = input()
             while again != "y" and again != "n":
                 print("Please Enter y for Yes and n for No")
-                again == input()
+                again = input()
         print("Would you like to chagne the configuration?(y/n)")
         changeConfig = input()
         while changeConfig != "n" and changeConfig != "y":
