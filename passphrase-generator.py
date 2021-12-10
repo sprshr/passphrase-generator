@@ -30,6 +30,8 @@ def addSymbol():
 
 def generate(length):
     passphrase = ""
+    if length > 4000:
+        print("It might take longer the usual, please wait")
     for n in range(length):
         generated = random.choice(functions)()
         passphrase = passphrase + generated
@@ -62,6 +64,8 @@ def incNumber():
         functions.append(addNumber)
         global noCharacter
         noCharacter = False
+
+
 def incUpper():
     # upper case
     print("Include Upper Case? (y/n)")
@@ -74,6 +78,8 @@ def incUpper():
         functions.append(addUpperCase)
         global noCharacter
         noCharacter = False
+
+
 def incLower():
     print("Include Lower Case? (y/n)")
     includeLowerCase = input()
@@ -85,6 +91,8 @@ def incLower():
         functions.append(addLowerCase)
         global noCharacter
         noCharacter = False
+
+
 def incSymbol():
     print("Include Symbols? (y/n)")
     includeSymbol = input()
