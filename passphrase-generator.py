@@ -61,9 +61,7 @@ def incNumber():
     if includeNumber == "y":
         functions.append(addNumber)
         global noCharacter
-        noCharacter = True
-
-
+        noCharacter = False
 def incUpper():
     # upper case
     print("Include Upper Case? (y/n)")
@@ -75,9 +73,7 @@ def incUpper():
     if includeUpperCase == "y":
         functions.append(addUpperCase)
         global noCharacter
-        noCharacter = True
-
-
+        noCharacter = False
 def incLower():
     print("Include Lower Case? (y/n)")
     includeLowerCase = input()
@@ -88,9 +84,7 @@ def incLower():
     if includeLowerCase == "y":
         functions.append(addLowerCase)
         global noCharacter
-        noCharacter = True
-
-
+        noCharacter = False
 def incSymbol():
     print("Include Symbols? (y/n)")
     includeSymbol = input()
@@ -101,7 +95,7 @@ def incSymbol():
     if includeSymbol == "y":
         functions.append(addSymbol)
         global noCharacter
-        noCharacter = True
+        noCharacter = False
 
 
 # generator loop
@@ -110,13 +104,13 @@ while True:
     while changeConfig == "y":
         functions = []
         passLength = 0
-        noCharacter = False
+        noCharacter = True
         askLength()
         incLower()
         incUpper()
         incNumber()
         incSymbol()
-        while noCharacter == False:
+        while noCharacter == True:
             print("You need to at least allow one type of chracater")
             incLower()
             incUpper()
