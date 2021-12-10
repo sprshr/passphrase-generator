@@ -1,7 +1,8 @@
 import random
 #global var
-symbols = ("`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=",
-           "+", "[", "{", "]", "}", ";", ":", "'", '"', ",", "<", ".", ">", "/", "?", "|", "")
+symbols = ("`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-",
+           "_", "=", "+", "[", "{", "]", "}", ";", ":", "'", '"', ",", "<",
+           ".", ">", "/", "?", "|", "")
 letters = ("asdfghjklzxcvbnmqwertyuiop")
 
 print("Passphrase Generator")
@@ -30,8 +31,8 @@ def addSymbol():
 
 def generate(length):
     passphrase = ""
-    if length > 4000:
-        print("It might take longer the usual, please wait")
+    if length > 1000000:
+        print("It might take longer than usual, please wait")
     for n in range(length):
         generated = random.choice(functions)()
         passphrase = passphrase + generated
